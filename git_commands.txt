@@ -1,0 +1,43 @@
+Gitbash  (Command prompt specific to GIT)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    cd  /d                            (Change the drive)
+>    cd   MyGitTest            (Change the directory)
+>      clear                             (to clear the screen)
+ 
+
+>        Go to the directory 
+>      git init             
+ 
+>      git remote add origin  "git_rep_url"
+>      git remote add origin  "https://github.com/tnrao-trainer/MyTestRepo1412.git" 
+ 
+>     git pull origin master        
+ 
+
+    //  Add the required files in the working directory
+ 
+>        git  add   app.component.ts            ( specific file)
+        git  add  -A                                        (All Files)
+ 
+    
+>         git   commit   -m "commit message"
+ 
+>      git push origin master
+
+        --->    push the committed files to central repository 
+
+
+
+
+Updates/Add New Files
+~~~~~~~~~~~~~~~~~~~~
+    a. Modify  --  app.component.ts
+    b. Add New File  :  login.component.ts
+ 
+>   git status
+>   git  add  login.component.ts
+>   git status
+>   git  add  app.component.ts
+>   git status
+>   git commit -m "Commit some new files at 2:24 pm"
+>   git push origin master
