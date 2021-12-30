@@ -1,0 +1,10 @@
+<h2>Sign Out</h2>
+<style>
+    button{
+        margin: 2px;
+    }
+</style>
+
+<p>Click below to sign out</p>
+<button [hidden]="!shouldBeHidden" (click)="signout_click()">Sign Out</button>  <br>
+<button [hidden]="shouldBeHidden" (click)="login_click()">Login</button>

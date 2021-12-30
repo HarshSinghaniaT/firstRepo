@@ -1,0 +1,19 @@
+<style>
+    button{
+        margin:2px;
+    }
+</style>
+<br><br>
+Select the Type of display
+<select [(ngModel)]="mode">
+    <option >List</option>
+    <option >Table</option>
+    <option >Cards</option>
+    <option >Others</option>
+</select> <br><br>
+<button (click)="button_click('List')">List</button>
+<button (click)="button_click('Table')">Table</button>
+<button (click)="button_click('Cards')">Card</button>
+<button (click)="button_click('Default')">Default</button>
+
+<app-dept-details [deptObj]=" deptArray" [mode]="mode"></app-dept-details>

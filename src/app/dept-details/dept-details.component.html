@@ -1,0 +1,64 @@
+<style>
+    .bg1{ background-color :  lightblue;  }
+    .bg2{ background-color :  lightgreen;  }
+    .bg3{ background-color :  pink;  }
+    .c1{
+        border : 1px solid gray;
+        border-radius: 10px;
+        width: 150px;
+        padding: 5px;
+        text-align: center;
+        float: left;
+        margin: 5px;
+        box-shadow: 5px 5px 2px black;
+    }
+    .font1{
+        font: bold;
+    }
+</style>
+
+<section [ngSwitch]="mode"> 
+    <article *ngSwitchCase="'List'">
+        <ol>
+            <li *ngFor="let dept of deptObj">
+                Department is 
+                <span style="color: blue; font-weight: bold;">{{dept.dname}}</span>
+                and Department No is 
+                <span style="color: brown; font-weight: bold;">{{dept.deptno}}</span>
+                From
+                <span [ngStyle]="{color: (dept.location == 'Chn'?'Red':'grey') }">{{dept.location}}.</span>
+            </li>
+        </ol>
+
+    </article> 
+    <article *ngSwitchCase="'Table'">
+        <table border="2" cellSpacing="0" cellPaddin="3">
+            <tr class="bg1">
+                <th>S.No</th>
+                <th>Department Name</th>
+                <th>Department No</th>
+                <th>Location</th>
+            </tr>
+            <tr  *ngFor="let dept of deptObj; let i = index; let x = even; let y=odd;" 
+                [ngClass]="{bg2:x, bg3:y}">
+                <td>{{i+1}}</td>
+                <td>{{dept.dname}}</td>
+                <td>{{dept.deptno}}</td>
+                <td>{{dept.location}}</td>
+            </tr>
+        </table>
+
+    </article>
+    
+    <article *ngSwitchCase="'Cards'">
+
+        <div  class="c1"  *ngFor="let dept of deptObj">
+            <h3 style="margin: 2px; color: red;">{{dept.dname}}</h3>
+            <u>DeptNo : {{dept.deptno}}</u> <br>
+            Location : <span style="color: green;">{{dept.location}}</span> <br>
+            <!-- <a href="javascript:void(0)" (click)="deptRemove_click()"></a> -->
+        </div>
+    </article>
+    <article *ngSwitchDefault> This is Default Case</article>
+
+</section>

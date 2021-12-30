@@ -1,0 +1,23 @@
+<h3>List of technologies</h3>
+<!-- <p *ngFor="let tech of technologies">
+    {{tech}}
+</p> -->
+<!-- <div >
+    <table>
+        <tr>
+            <td  *ngFor="let tech of technologies">
+                    <img src={{tech.src}} alt="Sample Image"> <br>
+                    <h4>{{tech.name}} </h4>
+                    {{tech.desc}}
+            </td>
+        </tr>
+    </table>
+</div> -->
+
+<div class="row">
+    <div class="column" *ngFor="let tech of technologies">
+        <img src={{tech.src}} alt="Sample Image"> <br>
+                    <h3>{{tech.name}}</h3>
+                    <h5>{{tech.desc}}</h5>   
+    </div>
+</div>

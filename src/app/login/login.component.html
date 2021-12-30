@@ -1,0 +1,62 @@
+<style>
+	.error {   color : Red;  }
+</style>
+
+<h3> Angular Form Validations using  Model Driven  </h3>
+<hr/>
+
+<form [formGroup]="loginForm" (submit)="submit_click()">
+    <fieldset>
+        <legend>Vehicle registration form</legend>
+
+        Owner name: <input type="text" formControlName="ownername" />
+        <span *ngIf="loginForm.controls['ownername'].invalid && loginForm.controls['ownername'].dirty" class="error">Owner name is empty</span>
+        <br><br>
+        Contact Number: <input type="number" formControlName="contactnumber"/>
+        <span *ngIf="loginForm.controls['contactnumber'].invalid && loginForm.controls['contactnumber'].dirty" class="error">Contact Number is wrong or empty</span>
+        <br><br>
+        Owner Email: <input type="email" formControlName="email"/>
+        <span *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].dirty" class="error">Email Id is wrong or empty</span>
+        <br><br>
+        Vehicle Registration Number: <input type="text" formControlName="vehicleno"/>
+        <span *ngIf="loginForm.controls['vehicleno'].invalid && loginForm.controls['vehicleno'].dirty" class="error">Vehicle Number is wrong or empty</span>
+        <br><br>
+        Address: <input type="text" formControlName="address"/>
+        <span *ngIf="loginForm.controls['address'].invalid && loginForm.controls['address'].dirty" class="error">Address is wrong or empty</span>
+        <br><br>
+        Model: <input type="text" formControlName="model"/>
+        <span *ngIf="loginForm.controls['model'].invalid && loginForm.controls['model'].dirty" class="error">Model is empty</span>
+        <br><br>
+        Color: <input type="text" formControlName="color"/>
+        <span *ngIf="loginForm.controls['color'].invalid && loginForm.controls['color'].dirty" class="error">Color is empty</span>
+        <br><br>
+        Year: <input type="number" formControlName="year"/>
+        <span *ngIf="loginForm.controls['year'].invalid && loginForm.controls['year'].dirty" class="error">Year is not acceptable</span>
+        <br><br>
+
+        <button [disabled]="loginForm.invalid">Register</button>
+
+    </fieldset>
+</form>
+<br><br>
+
+<p appColorShadow> Hello</p>
+<p appColorShadow ="blue">New World</p>
+<p appColorShadow ="green">New Color</p>
+
+
+<div *appAdminUsers="'Scott'">
+    <p>ADMIN TEXT </p>
+</div>
+<br>
+<div *appAdminUsers="'Smith'">
+    <p>ADMIN TEXT </p>
+</div>
+<br>
+<div *appAdminUsers="'Sam'">
+    <p>ADMIN TEXT </p>
+</div>
+<br>
+<div *appAdminUsers="'Robert'">
+    <p>ADMIN TEXT </p>
+</div>

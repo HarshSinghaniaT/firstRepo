@@ -1,0 +1,86 @@
+<style>
+    .bg1{ background-color :  lightblue;  }
+    .bg2{ background-color :  lightgreen;  }
+    .bg3{ background-color :  pink;  }
+    .c1{
+        border : 1px solid gray;
+        border-radius: 10px;
+        width: 150px;
+        padding: 5px;
+        text-align: center;
+        float: left;
+        margin: 5px;
+        box-shadow: 5px 5px 2px black;
+    }
+</style>
+<hr>
+Choose Salary Range: 
+Min : <input type="number" [(ngModel)] = "min"/>
+Max : <input type="number" [(ngModel)] = "max"/> 
+<br>
+Choose Filter: 
+SearchBy : 
+<select [(ngModel)] = "filterCondition">
+    <option value=""></option>
+    <option value="location">Location</option>
+    <option value="job">Job</option>
+</select>
+Value : 
+<select [(ngModel)] = "selectedValue">
+    <option *ngFor = "let value of userDetails | searchFilterPipe : filterCondition">{{value}}</option>
+</select>
+<button (click)="filterButton_click()">Filter</button>
+<table border="2">
+    <tr class="bg1">
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Location</th>
+        <th>Salary</th>
+        <th>DOB</th>
+        <th>JOB</th>
+    </tr>
+    <tr *ngFor="let user of userDetails | rangepipe : min : max | searchCondition : key : value; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.contact}}</td>
+        <td>{{user.location}}</td>
+        <td>{{user.salary | currency : "INR"}}</td>
+        <td>{{user.dob | date : "dd-MMM-yyyy"}}</td>
+        <td>{{user.job}}</td>
+    </tr>
+</table>
+
+<hr>
+
+<table border="2" width="200">
+    <tr class="bg1">
+        <th>S.No</th>
+        <th>Employee</th>
+        <th>Performance Grades</th>
+        <th>Dept</th>
+    </tr> 
+    <tr *ngFor="let emp of empDetails; let i = index; let x = even; let y=odd;" 
+    [ngClass]="{bg2:x, bg3:y}"
+    [ngStyle]="{color : ( emp.grades == 4 ? 'red' :'black ' )}" 
+    >
+        <td>{{i+1}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.grades | gradepipe}}</td>
+        <td>{{emp.deptno}}</td>
+    </tr>
+</table>
+
+<hr>
+
+<button (click)="loadMore_click()" [hidden]="isButtonVisible" style="float: left;">Load More!</button>
+<br><br>
+<div>
+<div  class="c1"  *ngFor="let user of userDetails | slice : start : end">
+    <h3 style="margin: 2px; color: red;">{{user.name | titlecase}}</h3>
+    Contact : {{user.contact}} <br>
+    Location : <span style="color: green;">{{user.location | uppercase}}</span> <br>
+    Salary : <span>{{user.salary | currency : "INR"}}</span>
+    DOB : <span>{{user.dob | date : "dd-MMM-yyyy"}}</span>
+</div>
+</div>

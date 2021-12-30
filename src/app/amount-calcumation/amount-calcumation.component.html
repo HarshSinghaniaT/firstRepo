@@ -1,0 +1,12 @@
+<h2>Data Binding in Angular</h2>
+
+<fieldset>
+    <legend>Bill</legend>
+    Product Name : <input type="text" [(ngModel)] = "pname"/> <br>
+    Price : <input type="number" [(ngModel)] = "price"/> <br>
+    Quantity : <input type="number" [(ngModel)] = "qty"/> <br>
+
+    <button (click)="amountButton_click()">Calculate</button>
+    <p>The Total Amount is: {{result}}</p>
+
+</fieldset>
